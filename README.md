@@ -4,7 +4,7 @@ Fragment navigator is a simple way to navigate between fragments.
 
 #### Implementation steps
 1. Extend your Activity the BaseFragmentActivity class.
-2. Override the getFragmentContainerID method and make it to return your fragment container layout id, which is placed in your activity`s xml
+2. Override the getFragmentContainerID method and make it to return your fragment container layout id, which is placed in your activity`s xml.
 3. Extend your Fragments the BaseFragment class.
 
 Now you can navigate with the *navigateTo()* method. This method is accessible from your Activity and Fragments as well.

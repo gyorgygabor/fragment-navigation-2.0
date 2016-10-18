@@ -23,15 +23,12 @@ public class FragmentC extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
 
 
-
-
         root.findViewById(R.id.nextButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 FragmentD fragmentD = new FragmentD();
                 fragmentD.setCustomBehavior( new FragmentDBehavior1());
-
 
                 navigateTo(fragmentD);
 
