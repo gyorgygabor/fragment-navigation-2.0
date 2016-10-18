@@ -19,3 +19,4 @@ You can pass to the *navigateTo()* method  your fragment instance or class(new F
 
 #### Notes:
 The BaseFragmentActivity is extended from Activity. If you want to use AppCompactActivity or any other custom class as base class, you have to modify the BaseActivity class so.
+
