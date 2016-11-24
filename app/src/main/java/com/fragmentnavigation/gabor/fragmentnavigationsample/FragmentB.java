@@ -25,7 +25,7 @@ public class FragmentB extends BaseFragment {
         root.findViewById(R.id.nextButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(FragmentC.class);
+                getNavigationFacade().navigateTo(FragmentC.class);
             }
         });
 
@@ -37,7 +37,7 @@ public class FragmentB extends BaseFragment {
 
     @Override
     public boolean onBackPressed() {
-        navigateTo(FragmentA.class);
+        getNavigationFacade().navigateTo(FragmentA.class);
         return true;
     }
 }

@@ -22,6 +22,7 @@ public class Interfaces {
 
     public interface FragmentNavigation {
         boolean navigateTo(Type fragmentClass, Bundle bundle, @AnimRes int enterAnimationID, @AnimRes int exitAnimationID);
+        boolean navigateTo(Type fragmentClass, Object param, @AnimRes int enterAnimationID, @AnimRes int exitAnimationID);
     }
 
     public interface ActivityFragmentNavigation extends FragmentNavigation {

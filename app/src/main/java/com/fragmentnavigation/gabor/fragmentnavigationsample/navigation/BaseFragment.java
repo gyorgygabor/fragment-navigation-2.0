@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.AnimRes;
+import android.support.annotation.NonNull;
 
 import java.lang.reflect.Type;
 
@@ -12,11 +13,14 @@ import java.lang.reflect.Type;
  * Created by gyorgygabor on 10.12.2015.
  */
 
-public abstract class BaseFragment extends Fragment implements Type, Interfaces.FragmentNavigation, Interfaces.OnBackPressed {
+public abstract class BaseFragment extends Fragment implements Type, Interfaces.OnBackPressed {
 
     protected Interfaces.FragmentNavigation fragmentNavigator;
     protected Interfaces.OnCloseDrawer drawerInterface;
     protected Activity context;
+    protected Object mParam;
+
+    private NavigationFacade navigationFacade;
 
     @Override
     public void onAttach(Activity context) {
@@ -35,6 +39,9 @@ public abstract class BaseFragment extends Fragment implements Type, Interfaces.
 
         fragmentNavigator = (Interfaces.FragmentNavigation) activity;
         this.context = activity;
+
+
+        navigationFacade = new NavigationFacade(fragmentNavigator);
     }
 
 
@@ -46,47 +53,27 @@ public abstract class BaseFragment extends Fragment implements Type, Interfaces.
         }
     }
 
-    /**
-     * With this method you can navigate to other Fragment
-     *
-     * @param fragmentClass - your fragment instance or Class to navigate
-     * @return true if the navigation was success.
-     **/
 
-    public boolean navigateTo(Type fragmentClass) {
-        return fragmentNavigator.navigateTo(fragmentClass,null,0,0);
+    public void setmParam(Object o) {
+        mParam = o;
     }
-
-    /**
-     * With this method you can navigate to other Fragment
-     *
-     * @param fragmentClass - your fragment instance or Class to navigate
-     * @param bundle        - bundle to send to the fragment
-     * @return true if the navigation was success.
-     **/
-
-
-    public boolean navigateTo(Type fragmentClass, Bundle bundle) {
-        return fragmentNavigator.navigateTo(fragmentClass, bundle,0,0);
-    }
-
-    /**
-     * With this method you can navigate to other Fragment
-     *
-     * @param fragmentClass    - your fragment instance or Class to navigate
-     * @param bundle           - bundle to send to the fragment
-     * @param enterAnimId - your fragment`s enter animation
-     * @param exitAnimId  - previous fragment`s exit animation
-     * @return true if the navigation was success.
-     **/
-    @Override
-    public boolean navigateTo(Type fragmentClass, Bundle bundle, @AnimRes int enterAnimId,@AnimRes int exitAnimId) {
-       return fragmentNavigator.navigateTo(fragmentClass, bundle, enterAnimId, exitAnimId);
-    }
-
 
     @Override
     public boolean onBackPressed() {
         return false;
+    }
+
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        fragmentNavigator = null;
+        drawerInterface = null;
+        navigationFacade = null;
+    }
+
+    @NonNull
+    public NavigationFacade getNavigationFacade() {
+        return navigationFacade == null ? navigationFacade = new NavigationFacade(fragmentNavigator) : navigationFacade;
     }
 }

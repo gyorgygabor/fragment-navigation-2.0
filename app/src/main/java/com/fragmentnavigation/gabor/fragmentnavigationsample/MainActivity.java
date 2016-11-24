@@ -1,7 +1,11 @@
 package com.fragmentnavigation.gabor.fragmentnavigationsample;
 
 import android.os.Bundle;
+import android.support.annotation.AnimRes;
+
 import com.fragmentnavigation.gabor.fragmentnavigationsample.navigation.BaseFragmentActivity;
+
+import java.lang.reflect.Type;
 
 
 public class MainActivity extends BaseFragmentActivity {
@@ -13,7 +17,7 @@ public class MainActivity extends BaseFragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        navigateTo(FragmentA.class);
+        getNavigationFacade().navigateTo(FragmentA.class);
     }
 
 
@@ -21,5 +25,6 @@ public class MainActivity extends BaseFragmentActivity {
     public int getFragmentContainerID() {
         return R.id.fragmentContainer;
     }
+
 
 }

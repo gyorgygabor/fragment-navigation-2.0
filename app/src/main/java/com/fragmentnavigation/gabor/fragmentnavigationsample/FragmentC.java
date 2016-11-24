@@ -30,7 +30,7 @@ public class FragmentC extends BaseFragment {
                 FragmentD fragmentD = new FragmentD();
                 fragmentD.setCustomBehavior( new FragmentDBehavior1());
 
-                navigateTo(fragmentD);
+                getNavigationFacade().navigateTo(fragmentD);
 
             }
         });
@@ -41,7 +41,7 @@ public class FragmentC extends BaseFragment {
 
     @Override
     public boolean onBackPressed() {
-        navigateTo(FragmentB.class);
+        getNavigationFacade().navigateTo(FragmentB.class);
         return true;
     }
 }
