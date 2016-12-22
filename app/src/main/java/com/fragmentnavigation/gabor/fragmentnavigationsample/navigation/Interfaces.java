@@ -1,32 +1,22 @@
 package com.fragmentnavigation.gabor.fragmentnavigationsample.navigation;
 
-import android.os.Bundle;
-import android.support.annotation.AnimRes;
 
-import java.lang.reflect.Type;
+class Interfaces {
 
-/**
- * Created by gyorgygabor on 14.10.2016.
- */
-
-
-public class Interfaces {
-
-    public interface OnCloseDrawer {
+    interface OnCloseDrawer {
         void onCloseDrawer();
     }
 
-    public interface OnBackPressed {
+    interface OnBackPressed {
         boolean onBackPressed();
     }
 
-    public interface FragmentNavigation {
-        boolean navigateTo(Type fragmentClass, Bundle bundle, @AnimRes int enterAnimationID, @AnimRes int exitAnimationID);
-        boolean navigateTo(Type fragmentClass, Object param, @AnimRes int enterAnimationID, @AnimRes int exitAnimationID);
-    }
-
-    public interface ActivityFragmentNavigation extends FragmentNavigation {
+    interface ActivityFragmentNavigation {
         BaseFragment getCurrentFragment();
         int getFragmentContainerID();
+    }
+
+    interface NavigationFacadeInterface {
+        BaseNavigationFacade getNavigationFacade();
     }
 }

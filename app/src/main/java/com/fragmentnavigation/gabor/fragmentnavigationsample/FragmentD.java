@@ -9,15 +9,7 @@ import android.widget.TextView;
 import com.fragmentnavigation.gabor.fragmentnavigationsample.navigation.BaseFragment;
 
 
-/**
- * Created by gyorgygabor on 21.09.2016.
- */
-
 public class FragmentD extends BaseFragment {
-
-    private static final String TAG = FragmentD.class.getSimpleName();
-
-    private CustomBehavior customBehavior;
 
     @Nullable
     @Override
@@ -26,9 +18,9 @@ public class FragmentD extends BaseFragment {
         View root = inflater.inflate(R.layout.fragment_d, null);
 
 
-        if (customBehavior != null) {
+        if (customParameter != null && customParameter instanceof CustomBehavior) {
             TextView textView = (TextView) root.findViewById(R.id.fragment_d_title);
-            textView.setText(customBehavior.getCustomText());
+            textView.setText(((CustomBehavior)customParameter).getCustomText());
         }
 
         root.findViewById(R.id.nextButton).setOnClickListener(new View.OnClickListener() {
@@ -42,9 +34,7 @@ public class FragmentD extends BaseFragment {
     }
 
 
-    public void setCustomBehavior(CustomBehavior behavior) {
-        customBehavior = behavior;
-    }
+
 
     @Override
     public boolean onBackPressed() {

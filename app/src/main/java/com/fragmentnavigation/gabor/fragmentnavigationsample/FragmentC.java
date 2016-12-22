@@ -9,10 +9,6 @@ import android.view.ViewGroup;
 import com.fragmentnavigation.gabor.fragmentnavigationsample.navigation.BaseFragment;
 
 
-/**
- * Created by gyorgygabor on 21.09.2016.
- */
-
 public class FragmentC extends BaseFragment {
 
 
@@ -26,12 +22,8 @@ public class FragmentC extends BaseFragment {
         root.findViewById(R.id.nextButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                FragmentD fragmentD = new FragmentD();
-                fragmentD.setCustomBehavior( new FragmentDBehavior1());
-
-                getNavigationFacade().navigateTo(fragmentD);
-
+                
+                getNavigationFacade().navigateTo(FragmentD.class, new FragmentDBehavior2());
             }
         });
 
