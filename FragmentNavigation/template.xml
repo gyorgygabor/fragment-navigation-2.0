@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<template
+    format="2"
+    revision="2"
+    name="Fragment Navigation"
+    description="Creates a new Fragment Navigation template">
+
+    <category value="Other" />
+    <formfactor value="Mobile" />
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>  
