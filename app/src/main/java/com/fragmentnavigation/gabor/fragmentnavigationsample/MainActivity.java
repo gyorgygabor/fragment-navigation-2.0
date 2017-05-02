@@ -12,15 +12,11 @@ public class MainActivity extends BaseFragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         getNavigationFacade().navigateTo(FragmentA.class);
     }
-
 
     @Override
     public int getFragmentContainerID() {
         return R.id.fragmentContainer;
     }
-
-
 }
