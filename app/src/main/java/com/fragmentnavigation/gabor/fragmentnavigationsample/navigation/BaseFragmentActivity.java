@@ -30,9 +30,7 @@ public abstract class BaseFragmentActivity extends BaseActivity implements Inter
 
     @Override
     public void onBackPressed() {
-        if (!getCurrentFragment().onBackPressed()) {
-            super.onBackPressed();
-        }
+        if (!getCurrentFragment().onBackPressed()) super.onBackPressed();
     }
 
     @Override

@@ -11,25 +11,20 @@ import com.fragmentnavigation.gabor.fragmentnavigationsample.navigation.BaseFrag
 
 public class FragmentC extends BaseFragment {
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_c, null);
         super.onCreateView(inflater, container, savedInstanceState);
-
+        View root = inflater.inflate(R.layout.fragment_c, null);
 
         root.findViewById(R.id.nextButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
                 getNavigationFacade().navigateTo(FragmentD.class, new FragmentDBehavior2());
             }
         });
-
         return root;
     }
-
 
     @Override
     public boolean onBackPressed() {

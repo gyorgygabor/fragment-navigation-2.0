@@ -2,8 +2,8 @@ package com.fragmentnavigation.gabor.fragmentnavigationsample.navigation;
 
 
 import android.os.Bundle;
-
 import android.support.annotation.AnimRes;
+
 import java.lang.reflect.Type;
 
 
@@ -41,7 +41,6 @@ public abstract class BaseNavigationFacade<T extends BaseActivity> {
      **/
     public abstract boolean navigateTo(Type fragmentClass, Bundle bundle, @AnimRes int enterAnimId, @AnimRes int exitAnimId);
 
-
     /**
      * With this method you can navigate to other Fragment
      *
@@ -61,5 +60,4 @@ public abstract class BaseNavigationFacade<T extends BaseActivity> {
      * @return true if the navigation was success.
      **/
     public abstract boolean navigateTo(Type fragmentClass, Object param);
-
 }

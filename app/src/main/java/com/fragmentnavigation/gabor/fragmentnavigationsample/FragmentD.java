@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.fragmentnavigation.gabor.fragmentnavigationsample.navigation.BaseFragment;
 
 
@@ -17,10 +18,9 @@ public class FragmentD extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View root = inflater.inflate(R.layout.fragment_d, null);
 
-
         if (customParameter != null && customParameter instanceof CustomBehavior) {
             TextView textView = (TextView) root.findViewById(R.id.fragment_d_title);
-            textView.setText(((CustomBehavior)customParameter).getCustomText());
+            textView.setText(((CustomBehavior) customParameter).getCustomText());
         }
 
         root.findViewById(R.id.nextButton).setOnClickListener(new View.OnClickListener() {
@@ -32,9 +32,6 @@ public class FragmentD extends BaseFragment {
 
         return root;
     }
-
-
-
 
     @Override
     public boolean onBackPressed() {

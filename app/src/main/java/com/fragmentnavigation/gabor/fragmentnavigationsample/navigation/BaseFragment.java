@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.support.annotation.NonNull;
 import android.util.Log;
+
 import java.lang.reflect.Type;
 
 
@@ -21,8 +22,6 @@ public abstract class BaseFragment extends Fragment implements Type, Interfaces.
         super.onAttach(context);
         Log.d(TAG, "onAttach() called with: context = [" + context + "]" + this);
 
-
-
         if (context instanceof Interfaces.OnCloseDrawer) {
             drawerInterface = (Interfaces.OnCloseDrawer) context;
         }
@@ -35,7 +34,6 @@ public abstract class BaseFragment extends Fragment implements Type, Interfaces.
         this.context = context;
     }
 
-
     @Override
     public void onStart() {
         super.onStart();
@@ -43,7 +41,6 @@ public abstract class BaseFragment extends Fragment implements Type, Interfaces.
             drawerInterface.onCloseDrawer();
         }
     }
-
 
     public void setCustomParameter(Object o) {
         customParameter = o;
@@ -53,7 +50,6 @@ public abstract class BaseFragment extends Fragment implements Type, Interfaces.
     public boolean onBackPressed() {
         return false;
     }
-
 
     @Override
     public void onDetach() {

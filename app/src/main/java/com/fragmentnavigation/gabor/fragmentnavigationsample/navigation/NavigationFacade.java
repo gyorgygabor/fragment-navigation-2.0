@@ -17,7 +17,6 @@ public class NavigationFacade<T extends BaseActivity> extends BaseNavigationFaca
     private NavigationFacade() {
     }
 
-
     @Override
     public boolean navigateTo(Type fragmentClass) {
         return fragmentNavigationStrategy != null && fragmentNavigationStrategy.navigateTo(activity, fragmentClass, null, 0, 0);
@@ -42,5 +41,4 @@ public class NavigationFacade<T extends BaseActivity> extends BaseNavigationFaca
     public boolean navigateTo(Type fragmentClass, Object param) {
         return fragmentNavigationStrategy != null && fragmentNavigationStrategy.navigateTo(activity, fragmentClass, param, 0, 0);
     }
-
 }

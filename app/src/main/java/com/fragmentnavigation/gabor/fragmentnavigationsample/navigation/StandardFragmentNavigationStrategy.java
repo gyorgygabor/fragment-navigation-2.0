@@ -12,9 +12,6 @@ public class StandardFragmentNavigationStrategy<T extends BaseActivity> extends 
         super(fragmentContainerID);
     }
 
-
-
-
     @Override
     void transaction(T context, Bundle bundle, Object mParam, BaseFragment baseFragmentClass, int enterAnimId, int exitAnimId) {
         currentFragment = baseFragmentClass;
@@ -26,7 +23,6 @@ public class StandardFragmentNavigationStrategy<T extends BaseActivity> extends 
         if (bundle != null) {
             currentFragment.setArguments(bundle);
         }
-
 
         FragmentTransaction transaction = context.getFragmentManager().beginTransaction();
 

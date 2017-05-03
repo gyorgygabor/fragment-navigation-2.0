@@ -1,6 +1,5 @@
 package com.fragmentnavigation.gabor.fragmentnavigationsample.navigation;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.AnimRes;
 import android.util.Log;
@@ -29,7 +28,6 @@ public abstract class BaseFragmentNavigationStrategy<T extends BaseActivity> {
                 baseFragment = baseFragmentClass.newInstance();
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage(), e);
-                // return false;
             }
         }
         return baseFragment;
@@ -40,19 +38,19 @@ public abstract class BaseFragmentNavigationStrategy<T extends BaseActivity> {
     }
 
     boolean navigateTo(T context, Type fragmentClass, Object param, @AnimRes int enterAnimId, @AnimRes int exitAnimId) {
-        return navigationExecutor(context, fragmentClass,null, param, enterAnimId, exitAnimId);
+        return navigationExecutor(context, fragmentClass, null, param, enterAnimId, exitAnimId);
     }
 
     boolean navigateTo(T context, Type fragmentClass, Bundle bundle, int enterAnimId, int exitAnimId) {
-        return navigationExecutor(context, fragmentClass,bundle, null, enterAnimId, exitAnimId);
+        return navigationExecutor(context, fragmentClass, bundle, null, enterAnimId, exitAnimId);
     }
 
-    private boolean navigationExecutor(T context, Type fragmentClass,Bundle bundle, Object param, @AnimRes int enterAnimId, @AnimRes int exitAnimId) {
+    private boolean navigationExecutor(T context, Type fragmentClass, Bundle bundle, Object param, @AnimRes int enterAnimId, @AnimRes int exitAnimId) {
         currentFragment = (BaseFragment) context.getFragmentManager().findFragmentById(fragmentContainerId);
         BaseFragment targetFragment = getBaseFragmentFromType(fragmentClass);
 
-        if (targetFragment != null && !isSameFragment(currentFragment,targetFragment)) {
-            transaction(context,bundle, param, targetFragment, enterAnimId, exitAnimId);
+        if (targetFragment != null && !isSameFragment(currentFragment, targetFragment)) {
+            transaction(context, bundle, param, targetFragment, enterAnimId, exitAnimId);
             return true;
         }
         return false;
