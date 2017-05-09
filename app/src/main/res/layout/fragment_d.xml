@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/fragment_d_title"
         android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
         android:text="Fragment D"
         android:textSize="22sp" />
 

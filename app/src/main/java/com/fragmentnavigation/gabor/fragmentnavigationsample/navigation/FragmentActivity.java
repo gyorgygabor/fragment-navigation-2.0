@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 
-public abstract class BaseFragmentActivity extends BaseActivity implements Interfaces.ActivityFragmentNavigation, Interfaces.OnCloseDrawer, Interfaces.NavigationFacadeInterface {
+public abstract class FragmentActivity extends BaseActivity implements Interfaces.ActivityFragmentNavigation, Interfaces.OnCloseDrawer, Interfaces.NavigationFacadeInterface {
 
     BaseFragmentNavigationStrategy<BaseActivity> fragmentNavigationBehavior;
     private BaseNavigationFacade<BaseActivity> navigationFacade;
@@ -24,7 +24,7 @@ public abstract class BaseFragmentActivity extends BaseActivity implements Inter
 
     @Override
     @NonNull
-    public BaseNavigationFacade getNavigationFacade() {
+    public BaseNavigationFacade getNavigator() {
         return navigationFacade == null ? navigationFacade = new EmptyNavigationFacade<>() : navigationFacade;
     }
 

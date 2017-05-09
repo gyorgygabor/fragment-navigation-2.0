@@ -17,6 +17,6 @@ class Interfaces {
     }
 
     interface NavigationFacadeInterface {
-        BaseNavigationFacade getNavigationFacade();
+        BaseNavigationFacade getNavigator();
     }
 }
