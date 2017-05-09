@@ -56,7 +56,7 @@ public abstract class BaseFragment extends Fragment implements Type, Interfaces.
     }
 
     @NonNull
-    public BaseNavigationFacade getNavigationFacade() {
+    public BaseNavigationFacade getNavigator() {
         return navigationFacade != null ? navigationFacade : new EmptyNavigationFacade();
     }
 }
