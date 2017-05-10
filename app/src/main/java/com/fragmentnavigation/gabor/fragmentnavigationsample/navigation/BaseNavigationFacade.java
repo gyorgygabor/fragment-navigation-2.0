@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 public abstract class BaseNavigationFacade<T extends BaseActivity> {
 
     protected T activity;
-    protected BaseFragmentNavigationStrategy<T> fragmentNavigationStrategy;
+    protected BaseNavigationStrategy<T> fragmentNavigationStrategy;
 
 
     /**

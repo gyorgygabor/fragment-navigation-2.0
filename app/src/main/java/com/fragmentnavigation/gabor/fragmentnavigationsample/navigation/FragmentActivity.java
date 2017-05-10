@@ -6,22 +6,30 @@ import android.support.annotation.NonNull;
 
 public abstract class FragmentActivity extends BaseActivity implements Interfaces.ActivityFragmentNavigation, Interfaces.OnCloseDrawer, Interfaces.NavigationFacadeInterface {
 
-    BaseFragmentNavigationStrategy<BaseActivity> fragmentNavigationBehavior;
+    BaseNavigationStrategy<BaseActivity> fragmentNavigationBehavior;
     private BaseNavigationFacade<BaseActivity> navigationFacade;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fragmentNavigationBehavior = new StandardFragmentNavigationStrategy<>(getFragmentContainerID());
+        fragmentNavigationBehavior = new StandardNavigationStrategy<>(getFragmentContainerID());
         navigationFacade = new NavigationFacade<>(this, fragmentNavigationBehavior);
     }
 
+    /**
+     * Returns the current focused fragment
+     * @return currentFragment
+     */
     @Override
     public BaseFragment getCurrentFragment() {
         return fragmentNavigationBehavior.currentFragment;
     }
 
+    /**
+     * Returns the fragment navigator
+     * @return BaseNavigationFacade object
+     */
     @Override
     @NonNull
     public BaseNavigationFacade getNavigator() {

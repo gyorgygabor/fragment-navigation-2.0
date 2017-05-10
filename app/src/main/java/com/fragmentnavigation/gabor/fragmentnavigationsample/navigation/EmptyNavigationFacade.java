@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.AnimRes;
 import java.lang.reflect.Type;
 
+/**
+ * A navigation facade without implementation to avoid the NullPointerException.
+ */
 
 public class EmptyNavigationFacade<T extends BaseActivity> extends BaseNavigationFacade<T> {
 

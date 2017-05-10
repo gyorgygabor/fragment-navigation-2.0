@@ -6,19 +6,22 @@ import android.util.Log;
 
 import java.lang.reflect.Type;
 
+/**
+ * Base navigation strategy
+ */
 
-public abstract class BaseFragmentNavigationStrategy<T extends BaseActivity> {
-    private static final String TAG = StandardFragmentNavigationStrategy.class.getSimpleName();
+public abstract class BaseNavigationStrategy<T extends BaseActivity> {
+    private static final String TAG = StandardNavigationStrategy.class.getSimpleName();
 
     BaseFragment currentFragment;
     int fragmentContainerId;
 
 
-    BaseFragmentNavigationStrategy(int fragmentContainerId) {
+    BaseNavigationStrategy(int fragmentContainerId) {
         this.fragmentContainerId = fragmentContainerId;
     }
 
-    private BaseFragment getBaseFragmentFromType(Type fragmentClass) {
+    protected BaseFragment getBaseFragmentFromType(Type fragmentClass) {
         BaseFragment baseFragment = null;
         if (fragmentClass instanceof BaseFragment) {
             baseFragment = (BaseFragment) fragmentClass;
@@ -33,7 +36,7 @@ public abstract class BaseFragmentNavigationStrategy<T extends BaseActivity> {
         return baseFragment;
     }
 
-    private boolean isSameFragment(BaseFragment currentFragment, BaseFragment targetFragment) {
+    protected boolean isSameFragment(BaseFragment currentFragment, BaseFragment targetFragment) {
         return targetFragment.getClass().isInstance(currentFragment);
     }
 
@@ -41,11 +44,11 @@ public abstract class BaseFragmentNavigationStrategy<T extends BaseActivity> {
         return navigationExecutor(context, fragmentClass, null, param, enterAnimId, exitAnimId);
     }
 
-    boolean navigateTo(T context, Type fragmentClass, Bundle bundle, int enterAnimId, int exitAnimId) {
+    boolean navigateTo(T context, Type fragmentClass, Bundle bundle, @AnimRes int enterAnimId, @AnimRes int exitAnimId) {
         return navigationExecutor(context, fragmentClass, bundle, null, enterAnimId, exitAnimId);
     }
 
-    private boolean navigationExecutor(T context, Type fragmentClass, Bundle bundle, Object param, @AnimRes int enterAnimId, @AnimRes int exitAnimId) {
+    protected boolean navigationExecutor(T context, Type fragmentClass, Bundle bundle, Object param, @AnimRes int enterAnimId, @AnimRes int exitAnimId) {
         currentFragment = (BaseFragment) context.getFragmentManager().findFragmentById(fragmentContainerId);
         BaseFragment targetFragment = getBaseFragmentFromType(fragmentClass);
 

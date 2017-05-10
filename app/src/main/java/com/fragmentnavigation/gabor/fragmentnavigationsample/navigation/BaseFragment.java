@@ -39,10 +39,18 @@ public abstract class BaseFragment extends Fragment implements Type, Interfaces.
         }
     }
 
-    public void setCustomParameter(Object o) {
+    /**
+     * Pass an object to the given fragment
+     * @param o - object to pass
+     */
+    public void setParam(Object o) {
         customParameter = o;
     }
 
+    /**
+     * On Back press callback
+     * @return TRUE - if the back press is handled by the fragment, FALSE - otherwise
+     */
     @Override
     public boolean onBackPressed() {
         return false;

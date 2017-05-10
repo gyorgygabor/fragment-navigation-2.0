@@ -5,10 +5,10 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 
-public class StandardFragmentNavigationStrategy<T extends BaseActivity> extends BaseFragmentNavigationStrategy<T> {
+public class StandardNavigationStrategy<T extends BaseActivity> extends BaseNavigationStrategy<T> {
 
 
-    public StandardFragmentNavigationStrategy(int fragmentContainerID) {
+    public StandardNavigationStrategy(int fragmentContainerID) {
         super(fragmentContainerID);
     }
 
@@ -17,7 +17,7 @@ public class StandardFragmentNavigationStrategy<T extends BaseActivity> extends 
         currentFragment = baseFragmentClass;
 
         if (mParam != null) {
-            currentFragment.setCustomParameter(mParam);
+            currentFragment.setParam(mParam);
         }
 
         if (bundle != null) {

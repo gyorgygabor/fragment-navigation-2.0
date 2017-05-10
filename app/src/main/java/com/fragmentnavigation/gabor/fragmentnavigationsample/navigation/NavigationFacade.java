@@ -8,7 +8,7 @@ import java.lang.reflect.Type;
 public class NavigationFacade<T extends BaseActivity> extends BaseNavigationFacade<T> {
 
 
-    NavigationFacade(T activity, BaseFragmentNavigationStrategy<T> navigationStrategy) {
+    NavigationFacade(T activity, BaseNavigationStrategy<T> navigationStrategy) {
         this.fragmentNavigationStrategy = navigationStrategy;
         this.activity = activity;
     }
