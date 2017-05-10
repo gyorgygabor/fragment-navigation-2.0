@@ -17,3 +17,11 @@ Fragment navigator is a simple way to navigate between fragments.
 
 Now you can navigate with the *getNavigator().navigateTo()* method. This method is accessible from your Activity and Fragments as well.
 You can pass to the *getNavigator().navigateTo()* method  your fragment instance or class(new Fragment1(), Fragment1.class), bundle and animations.
+
+
+
+You can try it out with the above example or add it to your module level gradle file:
+
+```gradle
+compile 'com.gabor.fragment-navigation:app:1.5.0'
+```
