@@ -1,4 +1,4 @@
-package com.fragmentnavigation.gabor.fragmentnavigationsample;
+package com.fragmentnavigation.sample;
 
 import android.os.Bundle;
 

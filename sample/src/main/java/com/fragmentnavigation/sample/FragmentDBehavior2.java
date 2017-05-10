@@ -1,4 +1,4 @@
-package com.fragmentnavigation.gabor.fragmentnavigationsample;
+package com.fragmentnavigation.sample;
 
 class FragmentDBehavior2 implements CustomBehavior {
 
