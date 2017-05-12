@@ -15,10 +15,71 @@ Fragment navigator is a simple way to navigate between fragments.
 2. Override the getFragmentContainerID method and make it to return your fragment container layout id, which is placed in your activity`s xml.
 3. Extend your Fragments the *BaseFragment* class.
 
-Now you can navigate with the *getNavigator().navigateTo()* method. This method is accessible from your Activity and Fragments as well.
-You can pass to the *getNavigator().navigateTo()* method  your fragment instance or class(new Fragment1(), Fragment1.class), bundle and animations.
+#### How to use
 
+```java
+public class MainActivity extends FragmentActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        getNavigator().navigateTo(FragmentA.class);
+    }
+
+    @Override
+    public int getFragmentContainerID() {
+        return R.id.fragmentContainer;
+    }
+}
+```
+
+```java
+public class FragmentA extends BaseFragment {
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        final View root = inflater.inflate(R.layout.fragment_a, null);
+
+        root.findViewById(R.id.nextButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getNavigator().navigateTo(new FragmentB());
+            }
+        });
+        return root;
+    }
+}
+```
+
+```java
+public class FragmentC extends BaseFragment {
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        View root = inflater.inflate(R.layout.fragment_c, null);
+
+        root.findViewById(R.id.nextButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getNavigator().navigateTo(FragmentD.class, new FragmentDBehavior2());
+            }
+        });
+        return root;
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        getNavigator().navigateTo(FragmentB.class);
+        return true;
+    }
+}
+```
 
 You can try it out with the above example or add it to your module level gradle file:
 
