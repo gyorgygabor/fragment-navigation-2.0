@@ -38,7 +38,6 @@ public class MainActivity extends FragmentActivity {
 ```java
 public class FragmentA extends BaseFragment {
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -58,7 +57,6 @@ public class FragmentA extends BaseFragment {
 ```java
 public class FragmentC extends BaseFragment {
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
