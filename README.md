@@ -1,5 +1,5 @@
 # Fragment navigator
-
+[![Android Weekly](https://img.shields.io/badge/Android%20Weekly-246-lightgrey.svg)](http://androidweekly.net/issues/issue-246) 
 Fragment navigator is a simple way to navigate between fragments.
 
 #### Features
