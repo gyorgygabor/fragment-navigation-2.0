@@ -49,7 +49,7 @@ public abstract class BaseNavigationStrategy<T extends BaseActivity> {
     }
 
     protected boolean navigationExecutor(T context, Type fragmentClass, Bundle bundle, Object param, @AnimRes int enterAnimId, @AnimRes int exitAnimId) {
-        currentFragment = (BaseFragment) context.getFragmentManager().findFragmentById(fragmentContainerId);
+        currentFragment = (BaseFragment) context.getSupportFragmentManager().findFragmentById(fragmentContainerId);
         BaseFragment targetFragment = getBaseFragmentFromType(fragmentClass);
 
         if (targetFragment != null && !isSameFragment(currentFragment, targetFragment)) {
