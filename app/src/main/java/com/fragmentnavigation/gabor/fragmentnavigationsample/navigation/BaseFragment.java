@@ -1,8 +1,8 @@
 package com.fragmentnavigation.gabor.fragmentnavigationsample.navigation;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 
 import java.lang.reflect.Type;
 
