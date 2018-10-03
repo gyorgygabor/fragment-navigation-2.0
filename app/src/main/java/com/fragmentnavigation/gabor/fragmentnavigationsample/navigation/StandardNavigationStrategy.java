@@ -1,8 +1,8 @@
 package com.fragmentnavigation.gabor.fragmentnavigationsample.navigation;
 
 
-import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 
 
 public class StandardNavigationStrategy<T extends BaseActivity> extends BaseNavigationStrategy<T> {
@@ -24,7 +24,7 @@ public class StandardNavigationStrategy<T extends BaseActivity> extends BaseNavi
             currentFragment.setArguments(bundle);
         }
 
-        FragmentTransaction transaction = context.getFragmentManager().beginTransaction();
+        FragmentTransaction transaction = context.getSupportFragmentManager().beginTransaction();
 
         if (enterAnimId > 0 && exitAnimId > 0) {
             transaction.setCustomAnimations(enterAnimId, exitAnimId);
